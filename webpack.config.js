@@ -37,12 +37,14 @@ module.exports = {
 			{
 				test: /\.css$/,
 				loader: 'style-loader!css-loader'
-			}
+			},
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.woff2$|\.eot$/,
+        loader: 'url'
+      }
     ]
   },
-  context: path.join(__dirname, 'app'),
   plugins: [
-    HTMLWebpackPluginConfig,
-    CopyWebpackPluginConfig
+    HTMLWebpackPluginConfig
   ]
 };
