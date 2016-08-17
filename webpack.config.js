@@ -4,6 +4,12 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path = require('path');
+var CopyWebpackPluginConfig = new CopyWebpackPlugin([
+  { from: 'font' },
+  { from: 'images' }
+]);
 
 module.exports = {
   entry: [
@@ -27,8 +33,16 @@ module.exports = {
 				query: {
 					presets: ['react', 'es2015']
 				}
+			},
+			{
+				test: /\.css$/,
+				loader: 'style-loader!css-loader'
 			}
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  context: path.join(__dirname, 'app'),
+  plugins: [
+    HTMLWebpackPluginConfig,
+    CopyWebpackPluginConfig
+  ]
 };
