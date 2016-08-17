@@ -1,19 +1,35 @@
 {
-  "name": "react-fundamentals-curriculum",
+  "name": "react-weather",
   "version": "1.0.0",
-  "description": "Curriculum for React.js Program's React Fundamentals course.",
+  "description": "A simple weather app built with React.js and based on React.js Program's React Fundamentals course.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "prod": "webpack -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ReactjsProgram/react-fundamentals-curriculum.git"
+    "url": "git+https://github.com/syearian/react-weather.git"
   },
-  "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
+  "author": "Steven Yearian",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ReactjsProgram/react-fundamentals-curriculum/issues"
+    "url": "https://github.com/syearian/react-weather/issues"
   },
-  "homepage": "https://github.com/ReactjsProgram/react-fundamentals-curriculum#readme"
+  "homepage": "https://syearian.github.io/react-weather",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-router": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
 }
