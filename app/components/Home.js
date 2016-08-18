@@ -1,17 +1,32 @@
 var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-var WeatherInput = require('./WeatherInput');
+var CityInput = require('./CityInput');
+var GetWeatherButton = require('./GetWeatherButton');
+
+var styles = {
+  section: {
+    height: '100vh',
+    background: 'url("images/pattern.svg")'
+  },
+  h2: {
+    color: '#fff'
+  },
+  input: {
+
+  },
+  button: {
+    marginLeft: 10
+  }
+}
 
 function Home (props) {
   return (
-    <div className="jumbotron col-sm-12 text-center">
-      <h2>Enter a City and State</h2>
-      <WeatherInput />
-      <Link to='/playerOne'>
-        <button type='button' className='btn btn-lg btn-success'>Get Weather</button>
-      </Link>
-    </div>
+    <section className="jumbotron col-sm-12 text-center" style={styles.section}>
+      <h2 style={styles.h2}>Enter a City and State</h2>
+      <form>
+        <CityInput />
+	      <GetWeatherButton />
+      </form>	
+    </section>
   );
 }
 
