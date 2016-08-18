@@ -1,6 +1,6 @@
 var React = require('react');
 
-function WeatherInput (props) {
+function CityInput (props) {
   return (
     <div className="form-group">
       <input
@@ -13,4 +13,4 @@ function WeatherInput (props) {
   );
 }
 
-module.exports = WeatherInput;
+module.exports = CityInput;
