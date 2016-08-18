@@ -7,11 +7,13 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
-  { from: 'font' },
-  { from: 'images' }
+  { from: 'font', to: 'font' },
+  { from: 'images', to: 'images' },
+  { from: 'css', to: 'css'}
 ]);
 
 module.exports = {
+  context: path.join(__dirname, 'app'),
   entry: [
     './app/index.js'
   ],
@@ -34,17 +36,18 @@ module.exports = {
 					presets: ['react', 'es2015']
 				}
 			},
-			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
-			},
-      {
-        test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.woff2$|\.eot$/,
-        loader: 'url'
-      }
+			// {
+			// 	test: /\.css$/,
+			// 	loader: 'style-loader!css-loader'
+			// },
+      // {
+      //   test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.woff2$|\.eot$/,
+      //   loader: 'url'
+      // }
     ]
   },
   plugins: [
-    HTMLWebpackPluginConfig
+    HTMLWebpackPluginConfig,
+    CopyWebpackPluginConfig
   ]
 };
