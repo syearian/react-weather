@@ -9,13 +9,14 @@ var path = require('path');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
   { from: 'font', to: 'font' },
   { from: 'images', to: 'images' },
-  { from: 'css', to: 'css'}
+  { from: 'css', to: 'css'},
+  { from: 'index.html', to: 'index.html'}
 ]);
 
 module.exports = {
   context: path.join(__dirname, 'app'),
   entry: [
-    './app/index.js'
+    './index.js'
   ],
   output: {
     path: __dirname + '/dist',
@@ -47,7 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
-    HTMLWebpackPluginConfig,
+    // HTMLWebpackPluginConfig,
     CopyWebpackPluginConfig
   ]
 };
