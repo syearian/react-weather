@@ -5,7 +5,7 @@ var Link = ReactRouter.Link
 
 function CityInput (props) {
   return (
-    <form className={props.className} onSubmit={props.onSumbitLocation}>
+    <form className={props.classes} onSubmit={props.onSumbitLocation}>
       <div className="form-group">
         <input
           className='form-control'
@@ -23,7 +23,7 @@ function CityInput (props) {
 }
 
 CityInput.propTypes = {
-  className: PropTypes.string,
+  classes: PropTypes.string,
   onSubmitLocation: PropTypes.func.isRequired,
   onUpdateLocation: PropTypes.func.isRequired,
   location: PropTypes.string.isRequired,

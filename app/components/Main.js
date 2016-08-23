@@ -42,7 +42,7 @@ var Main = React.createClass({
         <header className='container-fluid' style={styles.header}>
           <h1 className='col-sm-6 col-md-7 col-lg-8' style={styles.h1}>Weather App</h1>
           <CityInput 
-            className='col-sm-6 col-md-5 col-lg-4 form-inline'
+            classes='col-sm-6 col-md-5 col-lg-4 form-inline'
             onSubmitLocation={this.handleSubmitLocation}
             onUpdateLocation={this.handleUpdateLocation}
             location={this.state.location}
