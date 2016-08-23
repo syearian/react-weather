@@ -1,6 +1,5 @@
 var React = require('react');
 var CityInput = require('./CityInput');
-var GetWeatherButton = require('./GetWeatherButton');
 
 var styles = {
   header: {
@@ -12,8 +11,10 @@ var styles = {
     margin: 0,
     color: '#fff'
   },
-  button: {
-    marginLeft: 10
+  form: {
+    button: {
+      marginLeft: 10
+    }
   },
   main: {
     height: '100%'
@@ -21,21 +22,38 @@ var styles = {
 }
 
 var Main = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+  getInitialState: function () {
+    return {
+      location: ''
+    }
+  },
+  handleSubmitLocation: function() {
+    console.log('submit');
+  },
+  handleUpdateLocation: function() {
+    console.log('update');
+  },
   render: function () {
     return (
       <div>
         <header className='container-fluid' style={styles.header}>
           <h1 className='col-sm-6 col-md-7 col-lg-8' style={styles.h1}>Weather App</h1>
-            <form className='col-sm-6 col-md-5 col-lg-4 form-inline' style={styles.form}>
-	            <CityInput />
-	            <GetWeatherButton style={styles.button}/>
-            </form>	
+          <CityInput 
+            className='col-sm-6 col-md-5 col-lg-4 form-inline'
+            onSubmitLocation={this.handleSubmitLocation}
+            onUpdateLocation={this.handleUpdateLocation}
+            location={this.state.location}
+            style={this.styles.form}
+          />
         </header>
         <main className='main-container' style={styles.main}>
           {this.props.children}
         </main>
       </div>
-    )
+    );
   }
 });
 
