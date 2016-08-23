@@ -30,11 +30,14 @@ var Main = React.createClass({
       location: ''
     }
   },
-  handleSubmitLocation: function() {
-    console.log('submit');
+  handleSubmitLocation: function(event) {
+    event.preventDefault();
+    console.log(this.state.location);
   },
-  handleUpdateLocation: function() {
-    console.log('update');
+  handleUpdateLocation: function(event) {
+    this.setState({
+      location: event.target.value
+    });
   },
   render: function () {
     return (
