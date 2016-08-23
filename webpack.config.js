@@ -1,9 +1,3 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/app/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
@@ -37,18 +31,9 @@ module.exports = {
 					presets: ['react', 'es2015']
 				}
 			},
-			// {
-			// 	test: /\.css$/,
-			// 	loader: 'style-loader!css-loader'
-			// },
-      // {
-      //   test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.woff2$|\.eot$/,
-      //   loader: 'url'
-      // }
     ]
   },
   plugins: [
-    // HTMLWebpackPluginConfig,
     CopyWebpackPluginConfig
   ]
 };
