@@ -6,6 +6,9 @@ var styles = {
     height: '100vh',
     background: 'url("images/pattern.svg")'
   },
+  divFormContainer: {
+    maxWidth: '60%'
+  },
   h2: {
     color: '#fff'
   },
@@ -38,13 +41,15 @@ var Home = React.createClass({
     return (
       <section className="jumbotron col-sm-12 text-center" style={styles.section}>
         <h2 style={styles.h2}>Enter a City and State</h2>
-        <CityInput 
-          className=''
-          onSubmitLocation={this.handleSubmitLocation}
-          onUpdateLocation={this.handleUpdateLocation}
-          location={this.state.location}
-          style={styles.form}
-        />	
+        <div className="row">
+          <CityInput 
+            classes='col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4'
+            onSubmitLocation={this.handleSubmitLocation}
+            onUpdateLocation={this.handleUpdateLocation}
+            location={this.state.location}
+            style={styles.form}
+          />
+        </div>	
       </section>
     );
   }
