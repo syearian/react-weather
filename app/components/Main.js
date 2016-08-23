@@ -46,7 +46,7 @@ var Main = React.createClass({
             onSubmitLocation={this.handleSubmitLocation}
             onUpdateLocation={this.handleUpdateLocation}
             location={this.state.location}
-            style={this.styles.form}
+            style={styles.form}
           />
         </header>
         <main className='main-container' style={styles.main}>
