@@ -1,5 +1,6 @@
 var React = require('react');
 var CityInput = require('../components/CityInput');
+var weatherHelpers = require('../utils/weatherHelpers');
 
 var styles = {
   section: {
@@ -33,7 +34,7 @@ var Home = React.createClass({
   },
   handleSubmitLocation: function(event) {
     event.preventDefault;
-    console.log(this.state.location);
+    weatherHelpers.getForecast(this.state.location);
   },
   handleUpdateLocation: function(event) {
     this.setState({

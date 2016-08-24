@@ -1,9 +1,10 @@
 var axios = require('axios');
 
 const APPID = '&APPID=cfc2eaa1c51253a29ce7206e1aad37c9';
+var city, country, cityCountry;
 
 function getCurrentWeather(city, country) {
-  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country + '&units=imperial' + APPID).then(function (data) {
+  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country + '&type=accurate' + '&units=imperial' + APPID).then(function (data) {
     console.log(data);
   })
   .catch(function (error) {
@@ -12,7 +13,7 @@ function getCurrentWeather(city, country) {
 }
 
 function getForecast(city, country) {
-  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + ',' + country + '&units=imperial' + APPID + '&cnt=5').then(function (data) {
+  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + ',' + country + '&type=accurate' + '&units=imperial' + APPID + '&cnt=5').then(function (data) {
     console.log(data);
   })
   .catch(function (error) {
@@ -30,13 +31,12 @@ function capitalize(str) {
 }
 
 // Set value of city, country, and format location
-function getLocation(value) {
-  location = value;
-  var array = location.split(",");
+function getLocation(loc) {
+  var array = loc.split(",");
   city = array[0];
-  city = capitalize(toLowerCase(city));
+  city = capitalize(city.toLowerCase());
   country = array[1].trim();
-  location = city + ', ' + country.toUpperCase();
+  cityCountry = city + ', ' + country.toUpperCase();
   country = country.toLowerCase();
 }
 
@@ -78,14 +78,16 @@ function changeBackImg(group) {
 }
 
 var helpers = {
-  getCurrentWeather: function(value) {
-    var city, country, location;
+  getWeather: function(value) {
     getLocation(value);
-    getCurrentWeather(value);
+    console.log(cityCountry);
+    getCurrentWeather(city, country);
   },
   getForecast: function(value) {
-    var city, country, location;
     getLocation(value);
-    getForecast(value);
+    console.log(cityCountry);
+    getForecast(city, country);
   }
 }
+
+module.exports = helpers;
