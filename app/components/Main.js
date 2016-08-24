@@ -33,7 +33,7 @@ var Main = React.createClass({
   },
   handleSubmitLocation: function(event) {
     event.preventDefault();
-    weatherHelpers.getWeather(this.state.location);
+    // weatherHelpers.getWeather(this.state.location);
   },
   handleUpdateLocation: function(event) {
     this.setState({

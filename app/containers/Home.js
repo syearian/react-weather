@@ -34,7 +34,7 @@ var Home = React.createClass({
   },
   handleSubmitLocation: function(event) {
     event.preventDefault;
-    weatherHelpers.getForecast(this.state.location);
+    // weatherHelpers.getForecast(this.state.location);
   },
   handleUpdateLocation: function(event) {
     this.setState({
