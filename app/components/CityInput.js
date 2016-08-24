@@ -14,8 +14,7 @@ function CityInput (props) {
           type='text'
           value={props.location} />
       </div>
-        <button type='submit' className='btn btn-success'
-          style={props.style.button}>Get Weather</button>
+        <button type='submit' className='btn btn-success' style={props.style.button}>Get Weather</button>
     </form>
   );
 }
