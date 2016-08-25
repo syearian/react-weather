@@ -13,9 +13,6 @@ var styles = {
   h2: {
     color: '#fff'
   },
-  input: {
-
-  },
   form: {
     button: {
       margin: '0 auto'
