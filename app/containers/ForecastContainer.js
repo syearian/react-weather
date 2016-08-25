@@ -19,6 +19,7 @@ var ForecastContainer = React.createClass({
         console.log(data);
         this.setState({
           isLoading: false,
+          location: weatherHelpers.formatLocation(this.state.location),
           days: data.data.list
         });
         console.log(this.state.days);
@@ -31,7 +32,8 @@ var ForecastContainer = React.createClass({
     return (
       <Forecast
         isLoading={this.state.isLoading}
-        weather={this.state.days} />
+        weather={this.state.days}
+        location={this.state.location} />
     );
   }
 });

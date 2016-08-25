@@ -80,6 +80,10 @@ var helpers = {
   getForecast: function(value) {
     getLocation(value);
     return getForecast(city, country);
+  },
+  formatLocation: function(loc) {
+    getLocation(loc);
+    return cityCountry;
   }
 }
 
