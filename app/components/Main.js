@@ -34,7 +34,6 @@ var Main = React.createClass({
   handleSubmitLocation: function(event) {
     event.preventDefault();
     this.context.router.push('/forecast/' + this.state.location)
-    // weatherHelpers.getWeather(this.state.location);
   },
   handleUpdateLocation: function(event) {
     this.setState({
