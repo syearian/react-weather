@@ -8,21 +8,32 @@ var ForecastContainer = React.createClass({
   },
   getInitialState: function () {
     return {
-      location: this.props.routeParams.city
+      location: this.props.routeParams.city,
+      days: [
+          {weather: [{main: ''}], temp: {max: '', min: ''}},
+          {weather: [{main: ''}], temp: {max: '', min: ''}},
+          {weather: [{main: ''}], temp: {max: '', min: ''}},
+          {weather: [{main: ''}], temp: {max: '', min: ''}},
+          {weather: [{main: ''}], temp: {max: '', min: ''}}
+        ]
     }
   },
   componentDidMount: function() {
     weatherHelpers.getForecast(this.state.location)
       .then(function (data) {
         console.log(data);
-      })
+        this.setState({
+          days: data.data.list
+        });
+        console.log(this.state.days);
+      }.bind(this))
       .catch(function (error) {
         console.log(error);
       });
   },
   render: function() {
     return (
-      <Forecast />
+      <Forecast weather={this.state.days} />
     );
   }
 });

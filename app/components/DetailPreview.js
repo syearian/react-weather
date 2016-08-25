@@ -3,12 +3,18 @@ var PropTypes = React.PropTypes;
 
 function DetailPreview (props) {
   return (
-    <div>{props.day}</div>
+    <div>
+      <h3>{props.day}</h3>
+      <p>{console.log(props.weather)}</p>
+      <p>{props.weather.weather[0].main}</p>
+      <p>Temp: {props.weather.temp.max}/{props.weather.temp.min}</p>
+    </div>
   );
 }
 
 DetailPreview.propTypes = {
-  
+  day: PropTypes.string,
+  weather: PropTypes.object
 };
 
 module.exports = DetailPreview;
