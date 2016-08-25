@@ -13,12 +13,7 @@ function getCurrentWeather(city, country) {
 }
 
 function getForecast(city, country) {
-  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + ',' + country + '&type=accurate' + '&units=imperial' + APPID + '&cnt=5').then(function (data) {
-    console.log(data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  return axios.get('https://crossorigin.me/http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + ',' + country + '&type=accurate' + '&units=imperial' + APPID + '&cnt=5');
 }
 
 // capitalize a string
@@ -80,13 +75,11 @@ function changeBackImg(group) {
 var helpers = {
   getWeather: function(value) {
     getLocation(value);
-    console.log(cityCountry);
-    getCurrentWeather(city, country);
+    return getCurrentWeather(city, country);
   },
   getForecast: function(value) {
     getLocation(value);
-    console.log(cityCountry);
-    getForecast(city, country);
+    return getForecast(city, country);
   }
 }
 

@@ -12,7 +12,13 @@ var ForecastContainer = React.createClass({
     }
   },
   componentDidMount: function() {
-    weatherHelpers.getForecast(this.state.location);
+    weatherHelpers.getForecast(this.state.location)
+      .then(function (data) {
+        console.log(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   },
   render: function() {
     return (
