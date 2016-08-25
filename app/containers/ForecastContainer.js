@@ -21,20 +21,18 @@ var ForecastContainer = React.createClass({
           location: weatherHelpers.formatLocation(this.state.location),
           forecast: data.data.list
         });
-        console.log(this.state.days);
       }.bind(this))
       .catch(function (error) {
         console.log(error);
       });
   },
-  handleClickDetail: function(event) {
+  handleClickDetail: function(dayForecast) {
     this.context.router.push({
       pathname: '/detail/' + this.state.location,
       state: {
-        location: this.state.location,
-        day: this.state.forecast
+        dayForecast: dayForecast
       }
-  })
+    })
   },
   render: function() {
     return (

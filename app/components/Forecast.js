@@ -14,24 +14,29 @@ function Forecast (props) {
       <div className="row">
         <DetailPreview
           className="col-sm-6 col-md-4"
+          key='0'
           day={props.forecast[0]}
-          onClick={props.handleClickDetail}  />
+          onClick={props.handleClickDetail.bind(null, props.forecast[0])}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
+          key='1'
           day={props.forecast[1]}
-          onClick={props.handleClickDetail}  />
+          onClick={props.handleClickDetail.bind(null, props.forecast[1])}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
+          key='2'
           day={props.forecast[2]}
-          onClick={props.handleClickDetail}  />
+          onClick={props.handleClickDetail.bind(null, props.forecast[2])}  />
         <DetailPreview
           className="col-sm-6 col-md-4 col-md-offset-2"
+          key='3'
           day={props.forecast[3]}
-          onClick={props.handleClickDetail}  />
+          onClick={props.handleClickDetail.bind(null, props.forecast[3])}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
+          key='4'
           day={props.forecast[4]}
-          onClick={props.handleClickDetail} />
+          onClick={props.handleClickDetail.bind(null, props.forecast[4])} />
       </div>
     </section>
 }

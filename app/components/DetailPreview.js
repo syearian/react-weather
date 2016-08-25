@@ -16,7 +16,6 @@ function DetailPreview (props) {
   var date = utils.getDate(props.day.dt);
   var high = Math.round(props.day.temp.max);
   var id = props.day.weather[0].id;
-  console.log(props.day)
   return (
     <div className={props.className} style={styles.div} onClick={props.onClick}>
       <h4>{date}</h4>
