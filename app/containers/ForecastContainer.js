@@ -10,7 +10,7 @@ var ForecastContainer = React.createClass({
     return {
       isLoading: true,
       location: this.props.routeParams.city,
-      days: []
+      forecast: []
     }
   },
   componentDidMount: function() {
@@ -19,7 +19,7 @@ var ForecastContainer = React.createClass({
         this.setState({
           isLoading: false,
           location: weatherHelpers.formatLocation(this.state.location),
-          days: data.data.list
+          forecast: data.data.list
         });
         console.log(this.state.days);
       }.bind(this))
@@ -32,7 +32,7 @@ var ForecastContainer = React.createClass({
       pathname: '/detail/' + this.state.location,
       state: {
         location: this.state.location,
-        day: this.state.days
+        day: this.state.forecast
       }
   })
   },
@@ -40,7 +40,7 @@ var ForecastContainer = React.createClass({
     return (
       <Forecast
         isLoading={this.state.isLoading}
-        weather={this.state.days}
+        forecast={this.state.forecast}
         location={this.state.location}
         handleClickDetail={this.handleClickDetail} />
     );
