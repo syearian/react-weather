@@ -14,15 +14,30 @@ var styles = {
 }
 
 function Detail (props) {
-  // var date = utils.getDate(props.day.dt);
-  // var high = Math.round(props.day.temp.max);
-  // var id = props.day.weather[0].id;
+  var date = utils.getDate(props.dayForecast.dt);
+  var high = Math.round(props.dayForecast.temp.max);
+  var low = Math.round(props.dayForecast.temp.min);
+  var id = props.dayForecast.weather[0].id;
+  var windDir = Math.round(props.dayForecast.deg);
   console.log(props.dayForecast);
-  return  props.isLoading === true
-  ? <Loading />
-  : <div>
-      <div>location {props.location}</div>
-    </div>
+  return  (
+    <section className="text-center">
+      <h2>{date}</h2>
+      <h3>{props.location}</h3>
+      <p id="high">High {high}</p>
+      <p id="low">Low {low}</p>
+      <div className="row">
+        <div className="col-xs-12 col-sm-4 col-sm-offset-2">
+          <i id="icon" className={"wi wi-owm-" + id}></i>
+          <p id="description">{props.dayForecast.weather[0].description}</p>
+        </div>
+        <div className="col-xs-12 col-sm-4">
+          <p id="humidity">{props.dayForecast.humidity} <i className="wi wi-humidity"></i></p>
+          <p id="wind">{props.dayForecast.speed} mph <i className="wi wi-wind from-' + windDir + '-deg"></i></p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 Detail.propTypes = {

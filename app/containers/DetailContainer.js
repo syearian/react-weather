@@ -13,19 +13,3 @@ var DetailContainer = React.createClass({
 });
 
 module.exports = DetailContainer;
-
-  // contextTypes: {
-  //   router: React.PropTypes.object.isRequired
-  // },
-  // getInitialState: function () {
-  //   return {
-  //     isLoading: true,
-  //     location: this.props.routeParams.city,
-  //     dayForecast: {}
-  //   }
-  // },
-  // componentDidMount: function() {
-  //   this.setState({
-  //     dayForecast: this.props.location.state.dayForecast
-  //   })
-  // },
