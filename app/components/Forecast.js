@@ -14,19 +14,24 @@ function Forecast (props) {
       <div className="row">
         <DetailPreview
           className="col-sm-6 col-md-4"
-          day={props.weather[0]} />
+          day={props.weather[0]}
+          onClick={props.handleClickDetail}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
-          day={props.weather[1]} />
+          day={props.weather[1]}
+          onClick={props.handleClickDetail}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
-          day={props.weather[2]} />
+          day={props.weather[2]}
+          onClick={props.handleClickDetail}  />
         <DetailPreview
           className="col-sm-6 col-md-4 col-md-offset-2"
-          day={props.weather[3]} />
+          day={props.weather[3]}
+          onClick={props.handleClickDetail}  />
         <DetailPreview
           className="col-sm-6 col-md-4"
-          day={props.weather[4]} />
+          day={props.weather[4]}
+          onClick={props.handleClickDetail} />
       </div>
     </section>
 }
@@ -34,6 +39,7 @@ function Forecast (props) {
 Forecast.propTypes = {
   isLoading: PropTypes.bool,
   location: PropTypes.string,
+  handleClickDetail: PropTypes.func,
   weather: PropTypes.array
 };
 

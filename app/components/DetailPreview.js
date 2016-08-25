@@ -18,7 +18,7 @@ function DetailPreview (props) {
   var id = props.day.weather[0].id;
   console.log(props.day)
   return (
-    <div className={props.className} style={styles.div}>
+    <div className={props.className} style={styles.div} onClick={props.onClick}>
       <h4>{date}</h4>
       <i className={"wi wi-owm-" + id} style={styles.i} ></i>
       <p>High: {high}</p>
@@ -28,6 +28,7 @@ function DetailPreview (props) {
 
 DetailPreview.propTypes = {
   className: PropTypes.string,
+  onClick: PropTypes.func,
   day: PropTypes.object
 };
 

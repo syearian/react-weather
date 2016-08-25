@@ -16,7 +16,6 @@ var ForecastContainer = React.createClass({
   componentDidMount: function() {
     weatherHelpers.getForecast(this.state.location)
       .then(function (data) {
-        console.log(data);
         this.setState({
           isLoading: false,
           location: weatherHelpers.formatLocation(this.state.location),
@@ -28,12 +27,22 @@ var ForecastContainer = React.createClass({
         console.log(error);
       });
   },
+  handleClickDetail: function(event) {
+    this.context.router.push({
+      pathname: '/detail/' + this.state.location,
+      state: {
+        location: this.state.location,
+        day: this.state.days
+      }
+  })
+  },
   render: function() {
     return (
       <Forecast
         isLoading={this.state.isLoading}
         weather={this.state.days}
-        location={this.state.location} />
+        location={this.state.location}
+        handleClickDetail={this.handleClickDetail} />
     );
   }
 });
