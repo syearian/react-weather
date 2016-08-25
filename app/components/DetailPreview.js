@@ -3,7 +3,7 @@ var PropTypes = React.PropTypes;
 
 function DetailPreview (props) {
   return (
-    <div>
+    <div className={props.className}>
       <h3>{props.day}</h3>
       <p>{console.log(props.weather)}</p>
       <p>{props.weather.weather[0].main}</p>
@@ -13,6 +13,7 @@ function DetailPreview (props) {
 }
 
 DetailPreview.propTypes = {
+  className: PropTypes.string,
   day: PropTypes.string,
   weather: PropTypes.object
 };
