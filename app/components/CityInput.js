@@ -10,7 +10,7 @@ function CityInput (props) {
         <input
           className='form-control'
           onChange={props.onUpdateLocation}
-          placeholder='Dallas, TX'
+          placeholder='Dallas, US'
           type='text'
           value={props.location} />
       </div>
