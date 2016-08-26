@@ -4,12 +4,30 @@ var Loading = require('./Loading');
 var utils = require('../utils/utils');
 
 var styles = {
-  div: {
-    padding: "10px 0"
+  separator: {
+    paddingBottom: "20px"
   },
   i: {
-    fontSize: "4em",
-    margin: "10px 0"
+    default: {
+      fontSize: '1.5em'
+    },
+    temp: {
+      fontSize: '3em',
+      margin: '8px 0'
+    },
+    icon: {
+      fontSize: '4em',
+      marginBottom: '10px'
+    },
+    humidity: {
+      fontSize: '1.5em'
+    },
+    wind: {
+      fontSize: '2em'
+    }
+  },
+  humWind: {
+    paddingTop: '5px'
   }
 }
 
@@ -23,17 +41,24 @@ function Detail (props) {
   return  (
     <section className="text-center">
       <h2>{date}</h2>
-      <h3>{props.location}</h3>
-      <p id="high">High {high}</p>
-      <p id="low">Low {low}</p>
+      <h3 style={styles.separator}>{props.location}</h3>
+      <div className="row" style={styles.separator}>
+      <div className="col-xs-2 col-xs-offset-4 text-right">
+        <i className="wi wi-thermometer" style={styles.i.temp}></i>
+      </div>
+        <div className="col-xs-6 text-left">
+          <p id="high">High: {high}</p>
+          <p id="low">Low: {low}</p>
+        </div>
+      </div>
       <div className="row">
-        <div className="col-xs-12 col-sm-4 col-sm-offset-2">
-          <i id="icon" className={"wi wi-owm-" + id}></i>
+        <div className="col-xs-12 col-sm-3 col-sm-offset-3">
+          <i id="icon" className={"wi wi-owm-" + id} style={styles.i.icon}></i>
           <p id="description">{props.dayForecast.weather[0].description}</p>
         </div>
-        <div className="col-xs-12 col-sm-4">
-          <p id="humidity">{props.dayForecast.humidity} <i className="wi wi-humidity"></i></p>
-          <p id="wind">{props.dayForecast.speed} mph <i className="wi wi-wind from-' + windDir + '-deg"></i></p>
+        <div className="col-xs-12 col-sm-3" style={styles.humWind}>
+          <p id="humidity">{props.dayForecast.humidity} <i className="wi wi-humidity" style={styles.i.humidity}></i></p>
+          <p id="wind">{props.dayForecast.speed} mph <i className="wi wi-wind from-' + windDir + '-deg" style={styles.i.wind}></i></p>
         </div>
       </div>
     </section>
@@ -45,11 +70,5 @@ Detail.propTypes = {
   location: PropTypes.string,
   dayForecast: PropTypes.object
 };
-// <div className={props.className} style={styles.div} onClick={props.onClick}>
-//       <h4>{date}</h4>
-//       <i className={"wi wi-owm-" + id} style={styles.i} ></i>
-//       <p>High: {high}</p>
-//     </div>
-    //  <div>detail {console.log(props.dayForecast)}</div>
 
 module.exports = Detail;
