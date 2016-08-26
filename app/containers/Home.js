@@ -1,28 +1,26 @@
 var React = require('react');
-var CityInput = require('./CityInput');
+var CityInput = require('../components/CityInput');
 var weatherHelpers = require('../utils/weatherHelpers');
 
 var styles = {
-  header: {
-    backgroundColor: 'coral',
-    paddingTop: 15,
-    paddingBottom: 15
+  section: {
+    height: '100vh',
+    background: 'url("images/pattern.svg")'
   },
-  h1: {
-    margin: 0,
+  divFormContainer: {
+    maxWidth: '60%'
+  },
+  h2: {
     color: '#fff'
   },
   form: {
     button: {
-      marginLeft: 10
+      margin: '0 auto'
     }
-  },
-  main: {
-    height: '100%'
   }
 }
 
-var Main = React.createClass({
+var Home = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -32,7 +30,7 @@ var Main = React.createClass({
     }
   },
   handleSubmitLocation: function(event) {
-    event.preventDefault();
+    event.preventDefault;
     this.context.router.push('/forecast/' + this.state.location)
   },
   handleUpdateLocation: function(event) {
@@ -40,25 +38,22 @@ var Main = React.createClass({
       location: event.target.value
     });
   },
-  render: function () {
+  render: function() {
     return (
-      <div>
-        <header className='container-fluid' style={styles.header}>
-          <h1 className='col-sm-6 col-md-7 col-lg-8' style={styles.h1}>Weather App</h1>
+      <section className="jumbotron col-sm-12 text-center" style={styles.section}>
+        <h2 style={styles.h2}>Enter a City and Country Code</h2>
+        <div className="row">
           <CityInput 
-            classes='col-sm-6 col-md-5 col-lg-4 form-inline'
+            classes='col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4'
             onSubmitLocation={this.handleSubmitLocation}
             onUpdateLocation={this.handleUpdateLocation}
             location={this.state.location}
             style={styles.form}
           />
-        </header>
-        <main className='main-container' style={styles.main}>
-          {this.props.children}
-        </main>
-      </div>
+        </div>	
+      </section>
     );
   }
 });
 
-module.exports = Main;
+module.exports = Home;
